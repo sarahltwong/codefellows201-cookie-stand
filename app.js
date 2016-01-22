@@ -1,28 +1,58 @@
-var locations = ["A","B","C","D","E"];
-var minCustomersPerHour = [17,6,11,20,3];
-var maxCustomersPerHour = [88,24,38,48,24];
-var avgCookiesSoldPerHour = [5.2,1.2,1.9,3.3,2.6];
+// var PikePlace {
+//   minCustomers = 17,
+//   maxCustomers = 88,
+//   avgCookiesSold = 5.2,
+//   hoursOpen = ["10am","11am","12pm","1pm","2pm","3pm","4pm","5pm","6pm"],
+//   cookiesSoldPerHour = [],
+//   totalCookiesSold = 0,
+// }
+//
+// var SeaTacAirport {
+//   minCustomers = 6,
+//   maxCustomers = 24,
+//   avgCookiesSold = 1.2,
+//   hoursOpen = ["10am","11am","12pm","1pm","2pm","3pm","4pm","5pm","6pm"],
+//   cookiesSoldPerHour = [],
+//   totalCookiesSold = 0,
+// }
+//
+// var Southcenter {
+//   minCustomers = 11,
+//   maxCustomers = 38,
+//   avgCookiesSold = 1.9,
+//   hoursOpen = ["10am","11am","12pm","1pm","2pm","3pm","4pm","5pm","6pm"],
+//   cookiesSoldPerHour = [],
+//   totalCookiesSold = 0,
+// }
+//
+// var BellevueSquare {
+//   minCustomers = 20,
+//   maxCustomers = 48,
+//   avgCookiesSold = 3.3,
+//   hoursOpen = ["10am","11am","12pm","1pm","2pm","3pm","4pm","5pm","6pm"],
+//   cookiesSoldPerHour = [],
+//   totalCookiesSold = 0,
+// }
 
-var timeArray = ["10am","11am","12pm","1pm","2pm","3pm","4pm","5pm"];
-var customerCountPerHour = [[],[],[],[],[]];
+var Alki = {
+  minCustomers: 3,
+  maxCustomers: 24,
+  avgCookiesSold: 2.6,
+  hoursOpen: ["10am","11am","12pm","1pm","2pm","3pm","4pm","5pm","6pm"],
+  cookiesSoldPerHour: [],
+  dailyCookiesSold: 0,
+}
 
-var timeList = document.getElementById("printedTimeList");
+customersPerHour: function(min,max){
+  return Math.random() * (max - min) + min;
+}
 
-for (var k = 0; k < locations.length; k++) {
-
-  for (var i = 0; i < timeArray.length; i++) {
-    randomCustomerGenerator(minCustomersPerHour[k],maxCustomersPerHour[k]);
-
-    function randomCustomerGenerator (min,max) {
-      var generatedCustomerCountPerHour = Math.floor((Math.random() * max) + min);
-      customerCountPerHour[k,i].push(generatedCustomerCountPerHour);
-      console.log(customerCountPerHour);
-    }
-  }
-
-  for (j in timeArray) {
-    var liEL = document.createElement("li");
-    liEL.textContent = timeArray[j] + ": " + customerCountPerHour[k,j];
-    timeList.appendChild(liEL);
+generateCookiesSoldPerHour : function() {
+  for (var i = 0; i < hours.length; i++){
+    var cookiesSoldPerHourCalc = Math.floor(this.avgCookiesSold * this.customersPerHour(this.minCustomers,this.maxCustomers));
+    this.hourlyCookies.push(cookiesSoldPerHourCalc);
+    this.dailyCookiesSold += cookiesSoldPerHourCalc;
   }
 }
+
+// console.log(Alki.generateCookiesSoldPerHour)
