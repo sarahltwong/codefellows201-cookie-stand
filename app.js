@@ -15,14 +15,14 @@ for (var k = 0; k < locations.length; k++) {
 
     function randomCustomerGenerator (min,max) {
       var generatedCustomerCountPerHour = Math.floor((Math.random() * max) + min);
-      customerCountPerHour[k,i].push(generatedCustomerCountPerHour);
+      customerCountPerHour[k].push(generatedCustomerCountPerHour);
       console.log(customerCountPerHour);
     }
   }
 
   for (j in timeArray) {
     var liEL = document.createElement("li");
-    liEL.textContent = timeArray[j] + ": " + customerCountPerHour[k,j];
+    liEL.textContent = timeArray[j] + ": " + customerCountPerHour[k][j];
     timeList.appendChild(liEL);
   }
 }
