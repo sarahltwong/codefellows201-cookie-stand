@@ -37,15 +37,18 @@ Location.prototype.generateCookiesSoldPerHour = function () {
 Location.prototype.generatePrintedList = function () {
   var ulEl = document.createElement("ul");
   var liEl = document.createElement("li");
+  liEl.className = "storeName";
   liEl.textContent = this.locationName;
   printedListEl.appendChild(liEl);
   for (hour in this.hoursOpen) {
     liEl = document.createElement("li");
     liEl.textContent = this.hoursOpen[hour] + ": " + this.cookiesSoldPerHour[hour];
+    liEl.className = "storeInfo";
     ulEl.appendChild(liEl);
   }
   liEl = document.createElement("li");
   liEl.textContent = "Total: " + this.dailyCookiesSold;
+  liEl.className = "storeInfo";
   ulEl.appendChild(liEl);
   printedListEl.appendChild(ulEl);
 };
