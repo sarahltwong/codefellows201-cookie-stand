@@ -37,6 +37,7 @@ Location.prototype.generateCookiesSoldPerHour = function () {
 Location.prototype.generatePrintedList = function () {
   var ulEl = document.createElement("ul");
   var liEl = document.createElement("li");
+  liEl.className = "h1";
   liEl.textContent = this.locationName;
   printedListEl.appendChild(liEl);
   for (hour in this.hoursOpen) {
