@@ -1,8 +1,8 @@
 var pikePlace = {
   location: "Pike Place",
-  minCustomers: 17,
-  maxCustomers: 88,
-  avgCookiesSold: 5.2,
+  minCustomers: 3,
+  maxCustomers: 24,
+  avgCookiesSold: 2.6,
   hoursOpen: ["10am","11am","12pm","1pm","2pm","3pm","4pm","5pm","6pm"],
   cookiesSoldPerHour: [],
   dailyCookiesSold: 0,
@@ -40,9 +40,9 @@ pikePlace.generatePrintedList();
 
 var seatacAirport = {
   location: "SeaTac Airport",
-  minCustomers: 6,
+  minCustomers: 3,
   maxCustomers: 24,
-  avgCookiesSold: 1.2,
+  avgCookiesSold: 2.6,
   hoursOpen: ["10am","11am","12pm","1pm","2pm","3pm","4pm","5pm","6pm"],
   cookiesSoldPerHour: [],
   dailyCookiesSold: 0,
@@ -80,9 +80,9 @@ seatacAirport.generatePrintedList();
 
 var southcenter = {
   location: "Southcenter",
-  minCustomers: 11,
-  maxCustomers: 38,
-  avgCookiesSold: 1.9,
+  minCustomers: 3,
+  maxCustomers: 24,
+  avgCookiesSold: 2.6,
   hoursOpen: ["10am","11am","12pm","1pm","2pm","3pm","4pm","5pm","6pm"],
   cookiesSoldPerHour: [],
   dailyCookiesSold: 0,
