@@ -35,27 +35,42 @@ Location.prototype.generateCookiesSoldPerHour = function () {
 };
 
 Location.prototype.generatePrintedList = function () {
-  var ulEl = document.createElement("ul");
-  var liEl = document.createElement("li");
-  liEl.className = "storeName";
-  liEl.textContent = this.locationName;
-  printedListEl.appendChild(liEl);
+  var tableEl = document.createElement("table");
+  var tableBody = document.createElement("tbody");
+  var row = document.createElement("tr");
+  var cell = document.createElement("td");
+  var cellText = document.createTextNode(this.locationName);
+  cell.appendChild(cellText);
+  row.appendChild(cell);
+  tableBody.appendChild(row);
+  table.appendChild(tableBody);
   for (hour in this.hoursOpen) {
-    liEl = document.createElement("li");
-    liEl.textContent = this.hoursOpen[hour] + ": " + this.cookiesSoldPerHour[hour];
-    liEl.className = "storeInfo";
-    ulEl.appendChild(liEl);
+    var row = document.createElement("tr");
+    var cell = document.createElement("td");
+    var cellText = document.createTextNode(this.hoursOpen[hour]);
+    var cell2 = document.createElement("td");
+    var cellText2 = document.createTextNode(this.cookiesSoldPerHour[hour]);
+    cell.appendChild(cellText);
+    cell2.appendChild(cellText2);
+    row.appendChild(cell);
+    row.appendChild(cell2);
+    tableBody.appendChild(row);
+    table.appendChild(tableBody);
   }
-  liEl = document.createElement("li");
-  liEl.textContent = "Total: " + this.dailyCookiesSold;
-  liEl.className = "storeInfo";
-  ulEl.appendChild(liEl);
-  printedListEl.appendChild(ulEl);
+  var row = document.createElement("tr");
+  var cell = document.createElement("td");
+  var cellText = document.createTextNode("Total");
+  var cell2 = document.createElement("td");
+  var cellText2 = document.createTextNode(this.dailyCookiesSold);
+  cell.appendChild(cellText);
+  cell2.appendChild(cellText2);
+  row.appendChild(cell);
+  row.appendChild(cell2);
+  tableBody.appendChild(row);
+  table.appendChild(tableBody);
 };
-
-var printedListEl = document.getElementById("printedList");
 
 for (var i = 0; i < locations.length; i++) {
   locations[i].generateCookiesSoldPerHour();
   locations[i].generatePrintedList();
-};
+}
