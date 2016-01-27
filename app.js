@@ -34,41 +34,37 @@ Location.prototype.generateCookiesSoldPerHour = function () {
   }
 };
 
-Location.prototype.generatePrintedList = function () {
-  var tableEl = document.createElement("table");
-  var tableBody = document.createElement("tbody");
-  var row = document.createElement("tr");
+var tableEl = document.createElement("table");
+var tableBody = document.createElement("tbody");
+var row = document.createElement("tr");
+var emptyCell = document.createElement("td");
+var emptyCellText = document.createTextNode(" ");
+emptyCell.appendChild(emptyCellText);
+row.appendChild(emptyCell);
+for (var i = 0; i < hoursOpen.length; i++) {
   var cell = document.createElement("td");
-  var cellText = document.createTextNode(this.locationName);
+  var cellText = document.createTextNode(hoursOpen[i]);
   cell.appendChild(cellText);
   row.appendChild(cell);
-  tableBody.appendChild(row);
-  table.appendChild(tableBody);
-  for (hour in this.hoursOpen) {
-    var row = document.createElement("tr");
-    var cell = document.createElement("td");
-    var cellText = document.createTextNode(this.hoursOpen[hour]);
-    var cell2 = document.createElement("td");
-    var cellText2 = document.createTextNode(this.cookiesSoldPerHour[hour]);
-    cell.appendChild(cellText);
-    cell2.appendChild(cellText2);
-    row.appendChild(cell);
-    row.appendChild(cell2);
-    tableBody.appendChild(row);
-    table.appendChild(tableBody);
-  }
-  var row = document.createElement("tr");
-  var cell = document.createElement("td");
-  var cellText = document.createTextNode("Total");
-  var cell2 = document.createElement("td");
-  var cellText2 = document.createTextNode(this.dailyCookiesSold);
-  cell.appendChild(cellText);
-  cell2.appendChild(cellText2);
-  row.appendChild(cell);
-  row.appendChild(cell2);
   tableBody.appendChild(row);
   table.appendChild(tableBody);
 };
+
+Location.prototype.generatePrintedList = function () {
+  var row2 = document.createElement("tr");
+  var cell2 = document.createElement("td");
+  var cellText2 = document.createTextNode(locationName[i]);
+  cell2.appendChild(cellText2);
+  row2.appendChild(cell2);
+  for (var j = 0; j < this.hoursOpen.length; j++){
+    var cell3 = document.createElement("td");
+    var cellText3 = document.createTextNode(this.cookiesSoldPerHour[j]);
+    cell3.appendChild(cellText3);
+    row2.appendChild(cell3);
+  };
+  tableBody.appendChild(row2);
+  table.appendChild(tableBody);
+}
 
 for (var i = 0; i < locations.length; i++) {
   locations[i].generateCookiesSoldPerHour();
