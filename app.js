@@ -53,6 +53,8 @@ for (var i = 0; i < hoursOpen.length; i++) {
 Location.prototype.generatePrintedList = function () {
   var row2 = document.createElement("tr");
   var cell2 = document.createElement("td");
+  cell2.className = "storeName";
+  cell2.id = "tableLeft";
   var cellText2 = document.createTextNode(this.locationName);
   cell2.appendChild(cellText2);
   row2.appendChild(cell2);
