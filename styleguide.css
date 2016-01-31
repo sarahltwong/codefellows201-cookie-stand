@@ -89,3 +89,34 @@ p {
   float: left;
   background-color: #edafb4;
 }
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 13%;
+  height: 100%;
+  background-color: #edafb4;
+  position: fixed;
+  font-family: "Open Sans",sans-serif;
+  font-weight: 300;
+  font-size: 100%;
+  letter-spacing: 2px;
+  line-height: 100%;
+}
+
+.navigationContent a {
+  display: block;
+  padding: 8px 0px 8px 16px;
+  background-color: #edafb4;
+  text-decoration: none;
+  color: black;
+}
+
+.navigationContent a:hover {
+  background-color: #edc9af;
+
+}
+
+.avoidNavBar {
+  padding-left: 15%;
+}
